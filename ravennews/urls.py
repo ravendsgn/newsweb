@@ -3,8 +3,8 @@ from .views import index,detail, error_page,contact
 
 urlpatterns = [
     path('',index,name='index'),
-    path('detail/',detail,name='detail'),
-    path('contact/',contact,name='contact'),
+    path('news/<int:news_id>/',detail,name='detail'),
+    path('contact/', contact, name='contact'),
     path('404/',error_page,name='error_page')
 ]
 
