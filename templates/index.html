@@ -72,9 +72,10 @@
           <li class="active"><a href="index.html"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
           {% for ct in ctg %}
           {% if ct.is_active %}
-          <li><a href="#">{{ ct.name }}</a></li>
+          <li><a href="{% url 'category_news' ct.id %}">{{ ct.name }}</a></li>
           {% endif %}
           {% endfor %}
+
         </ul>
       </div>
     </nav>

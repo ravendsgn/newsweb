@@ -1,0 +1,9 @@
+<h2>News in {{ category.name }}</h2>
+<ul>
+    {% for news in news_list %}
+        <li><a href="{% url 'detail' news.id %}">{{ news.title }}</a></li>
+    {% empty %}
+        <p>No news available in this category.</p>
+    {% endfor %}
+</ul>
+
