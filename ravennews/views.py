@@ -14,12 +14,20 @@ def index(request):
         'news_jahon':news_jahon,
         'news_it':news_it
     }
-    return render(request, "index.html", {"news": news, "ctg": ctg})
+    return render(request, "index.html", ctx)
 
 # News Detail Page
 def detail(request, news_id):
     news = get_object_or_404(News, id=news_id)
-    return render(request, "single_page.html", {"news": news})
+    comments = news.comment_set.all()
+     # Get top 5 most viewed news
+
+    return render(request, "single_page.html", {
+        "news": news,
+        "comments": comments  # Pass popular posts separately
+    })
+
+
 
 # Contact Page
 def contact(request):
